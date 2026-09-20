@@ -31,5 +31,8 @@ export const testPrintApi = {
   list: (params) => http.get('/test-prints', { params }),
   add: (b) => http.post('/test-prints', b)
 }
+export const delayBoardApi = {
+  board: () => http.get('/delay-board')
+}
 
 export default http

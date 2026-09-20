@@ -6,6 +6,7 @@ const routes = [
   { path: '/plates', component: () => import('../views/Plates.vue'), meta: { label: '印版' } },
   { path: '/papers', component: () => import('../views/Papers.vue'), meta: { label: '纸张' } },
   { path: '/jobs', component: () => import('../views/Jobs.vue'), meta: { label: '印刷工单' } },
+  { path: '/delay-board', component: () => import('../views/DelayBoard.vue'), meta: { label: '延误桌' } },
   { path: '/test-prints', component: () => import('../views/TestPrints.vue'), meta: { label: '校色试印' } }
 ]
 

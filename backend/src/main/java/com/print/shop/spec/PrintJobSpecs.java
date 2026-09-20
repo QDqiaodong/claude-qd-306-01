@@ -35,4 +35,15 @@ public final class PrintJobSpecs {
             return parts.isEmpty() ? cb.conjunction() : cb.and(parts.toArray(new Predicate[0]));
         };
     }
+
+    /**
+     * 延误桌的入门条件：还没印完（待印 / 印刷中）、写了交期、交期已经过去。
+     * 已完成的、交期在今天或以后的、没写交期的，都不上桌。
+     */
+    public static Specification<PrintJob> overdueUnfinished(LocalDate today) {
+        return (root, query, cb) -> cb.and(
+                root.get("jobState").in(List.of("待印", "印刷中")),
+                cb.isNotNull(root.get("dueDate")),
+                cb.lessThan(root.get("dueDate"), today));
+    }
 }
