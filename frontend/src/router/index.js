@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  { path: '/', redirect: '/presses' },
+  { path: '/', redirect: '/delay-desk' },
+  { path: '/delay-desk', component: () => import('../views/DelayDesk.vue'), meta: { label: '延误桌' } },
   { path: '/presses', component: () => import('../views/Presses.vue'), meta: { label: '印刷机' } },
   { path: '/plates', component: () => import('../views/Plates.vue'), meta: { label: '印版' } },
   { path: '/papers', component: () => import('../views/Papers.vue'), meta: { label: '纸张' } },
